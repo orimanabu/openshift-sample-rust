@@ -7,6 +7,7 @@ use axum::{
 use axum_macros::debug_handler;
 use hyper::{header::HOST, Request};
 use std::net::SocketAddr;
+use chrono::{Local, DateTime};
 
 #[tokio::main]
 async fn main() {
@@ -26,5 +27,6 @@ async fn handler(ConnectInfo(addr): ConnectInfo<SocketAddr>, req: Request<hyper:
         None => "Unknown",
     };
 
-    format!("Hello from {} to {}", server, addr)
+    let local_datetime: DateTime<Local> = Local::now();
+    format!("{} Hello, world: from {} to {}\n", local_datetime, server, addr)
 }
