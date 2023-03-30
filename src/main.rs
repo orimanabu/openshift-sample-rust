@@ -28,5 +28,5 @@ async fn handler(ConnectInfo(addr): ConnectInfo<SocketAddr>, req: Request<hyper:
     };
 
     let local_datetime: DateTime<Local> = Local::now();
-    format!("{} Hello, world: from {} to {}\n", local_datetime, server, addr)
+    format!("{} Hello, world: HOST={}, RemoteAddr={}\n", local_datetime, server, addr)
 }
