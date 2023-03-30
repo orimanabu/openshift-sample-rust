@@ -28,7 +28,9 @@ async fn handler(ConnectInfo(addr): ConnectInfo<SocketAddr>, req: Request<hyper:
     };
 
     let local_datetime: DateTime<Local> = Local::now();
-    format!("{} Hello, world: HOST={}, LocalAddr={}, RemoteAddr={}\n", local_datetime, server, get_ip_list()[0], addr)
+    let msg = format!("{} Hello, world: HOST={}, LocalAddr={}, RemoteAddr={}\n", local_datetime, server, get_ip_list()[0], addr);
+    print!("{}", msg);
+    msg
 }
 
 // https://qiita.com/mm_sys/items/e3a62ddb3f8dbeee9031
